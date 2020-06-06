@@ -22,11 +22,9 @@
 ## cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|credit_num|integer|null: false|
-|limit_month|integer|null: false|
-|limit_year|string|null: false|
-|security|string|null: false|
-|user|references|foreign_key: true|
+|customer_id|string|null: false|
+|card_id|string|null: false|
+|user_id|references|foreign_key: true|
 ### Association
 - belongs_to :user
 
@@ -58,7 +56,7 @@
 |area|references|null: false, foreign_key: true|
 |shipping_day|references|null: false, foreign_key: true|
 |price|integer|null: false|
-|user|references|null: false, foreign_key: true|
+|user_seller|references|null: false, foreign_key: true|
 ### Association
 - has_many: images
 - has_many: comments
@@ -134,7 +132,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |message|text|null: false|
-|user|references|foreign_key: true|
+|user_buyer|references|foreign_key: true|
 |item|references|foreign_key: true|
 ### Association
 - belongs_to :user
