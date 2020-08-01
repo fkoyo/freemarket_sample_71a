@@ -343,10 +343,11 @@
 
 
   &__appBanner {
-    background-image: image-url("/images/bg-appBanner-pict.jpg");
-    padding: 100px 40px;
+    background-image: image-url("/assets/images/bg-appBanner-pict.jpg");
     background-size: cover;
     background-position: center;
+    height: 355px;
+    padding: 100px 40px;
     &__inner {
       color: #fff;
       text-align: center;
@@ -359,7 +360,7 @@
       &__text {
         font-size: 35px;
         text-shadow: 0 0 5px rgba(0,0,0,0.4);
-      }
+      } 
     }
   }
   &__footer {
