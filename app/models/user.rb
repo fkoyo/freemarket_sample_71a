@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: %i[facebook, google_oauth2]
+         :omniauthable, omniauth_providers: %i[facebook]
   validates :nickname, :last_name, :first_name, :last_name_fri, :first_name_fri, :birth_year, :birth_month, :birth_day, presence: true
   validates :password, presence: true, length: { minimum: 7 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
