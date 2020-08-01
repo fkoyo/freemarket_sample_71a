@@ -3,13 +3,13 @@
 .index__main__pickupContainer__headbottom
   = link_to "/", class: "link-btn" do
     新規投稿商品
-.index__main__pickupContainer__lists
-  .index__main__pickupContainer__lists__list        
-    .index__main__pickupContainer__lists__list__link
+.index__main__pickupContainer__list
+  .index__main__pickupContainer__list__lis        
+    .index__main__pickupContainer__list__lis__links
       - @products.each do |product|
         = link_to product_path(product.id), class:"product-link" do
           .product-image-box             
-            = image_tag product.photos[0].name.url,size: "200x150"             
+            = image_tag product.photos[0].name.url,size: "200x150" if product.photos.present?             
           .product-link__description
             .product-name
               = product.name
@@ -21,4 +21,9 @@
                   ★0
             .product-tax
               (税込) 
-        
+          - unless product.status == 1
+          - else
+            .sold-out 売り切れ
+            .items-box_photo__sold
+              .items-box_photo__sold__inner
+                SOLD

@@ -31,6 +31,12 @@
             %ul
               %li
                 = image_tag @product.photos[0].name.url
+                -if @product.status == 1
+                  .items-box_photo__sold2
+                    .items-box_photo__sold__inner
+                      SOLD
+                -else
+                
                 %ul
                   - @product.photos.each do |photo|
                     %li
@@ -114,7 +120,8 @@
             %button.main__showMain__topContents__topContent__commentBox__newComment__commentBtn{type:"submit"}
               %i.fas.fa-comment
               コメントする
-        - if user_signed_in? && current_user.id == @product.user_id
+        - if @product.status == 1
+        - elsif user_signed_in? && current_user.id == @product.user_id
           .productsManage
             = link_to edit_product_path , class:"editBtn" do
               %i.far.fa-edit
@@ -122,9 +129,9 @@
             = link_to product_path,method: :delete, data: { confirm: "本当に削除しますか？"}, class:"deleteBtn" do
               %i.fas.fa-trash
                 削除する
-        - if user_signed_in? && current_user.id != @product.user_id
+        - elsif user_signed_in? && current_user.id != @product.user_id
           .productsManage
-            = link_to root_path, class:"buyBtn" do
+            = link_to product_purchases_path(@product), class:"buyBtn" do
               %i.fas.fa-shopping-cart
                 購入する
       .main__showMain__topContents__links

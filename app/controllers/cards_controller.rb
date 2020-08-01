@@ -29,7 +29,7 @@ class CardsController < ApplicationController
       @card_year = @card_customer.exp_year.to_s.slice(2,3)
       
     else
-      redirect_to action: "new"
+      redirect_to action: :new
     end
   end
 
@@ -40,8 +40,8 @@ class CardsController < ApplicationController
   def create
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     if params["payjp_token"].blank?
-
-      redirect_to action: "new", alert: "クレジットカードを登録できませんでした。"
+      redirect_to action: "new"
+      flash[:alert] = 'クレジットカードを登録できませんでした。'
     else
       customer = Payjp::Customer.create(
         email: current_user.email,
@@ -69,8 +69,7 @@ class CardsController < ApplicationController
       customer.delete
       @card.delete
     end
-      redirect_to action: "index"
-      # ↑ユーザーマイページの支払い追加までいくように変更する。
+      redirect_to controller: :users, action: :card
   end
 
 

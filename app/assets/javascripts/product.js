@@ -76,7 +76,7 @@ $(document).on('turbolinks:load', function(){
     function setLabel() {
       //プレビューボックスのwidthを取得し、maxから引くことでラベルのwidthを決定
       var prevContent = $('.label-content').prev();
-      labelWidth = (620 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
+      labelWidth = (770 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
       $('.label-content').css('width', labelWidth);
     }
 

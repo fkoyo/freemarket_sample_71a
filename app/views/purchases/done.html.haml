@@ -9,52 +9,7 @@
         %span 発送をお待ちください  
     .purchased__content__messages  
       %h1 購入が完了しました
-    .purchased__content__item
-      .purchased__content__item__detail
-        .purchased__content__item__detail--image
-          = image_tag "#{@product.photos[0].name.url}",size: "100x100"
-        .purchased__content__item__detail--descriptions
-          .purchased__content__item__detail--descriptions__names
-            = @product.name
-          .purchased__content__item__detail--descriptions__prices       
-            %span.item-prices
-              = "¥" + "#{@product.price.to_s}"
-            %span (税込)送料込み         
-    .purchased__content__buy-prices
-      %h2 支払い金額
-      .purchased__content__buy-prices__pay
-        %span.pay-price
-        = "¥" + "#{@product.price.to_s}"
-    .purchased__content__credites
-      %h3 支払い方法   
-      .purchased__content__credites__card
-        -# - if @credit_information.blank?
-        -# %br /
-        -# - else
-        クレジットカード
-        .credit_num
-          ************1234
-          -# = "************" + @credit.credit_num.last4
-        .expiration-date
-          有効期限 06 / 20
-          -# - limit_month = @credit.limit_month.to_s
-          -# - limit_year = @credit.limit_year.to_s.slice(2,3)
-          -# = "有効期限" + limit_month + " / " + limit_year
-    .purchased__content__addre
-      %h4 配送先
-      .purchased__content__addre__add
-        .post_num
-          = "〒" + "#{@address.post_num}"
-        .prefecture
-          = @address.prefecture
-          %span.city
-            = @address.city
-          %span.address
-            = @address.address
-          %span.billding
-            = @address.billding
-        .address_name
-          = @address.address_name 
+    
     .purchased__content__form
       .purchased__content__form--btn
         = link_to("トップページに戻る", "/products")

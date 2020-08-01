@@ -1,0 +1,43 @@
+.after-sign-up{
+  width: 100%;
+  height: 100%;
+  background-color: whitesmoke;
+  padding: 40px;
+  &_content{
+    margin: 0 auto;
+    width: 574px;
+    background-color: white;
+    &_box{
+      margin: 8px 16px 32px;
+      padding: 32px 64px;
+      &_message{
+        text-align: center;
+        font-weight: bold;
+        margin: 0 0 16px;
+        padding: 16px;
+        font-size: 18px;
+      }
+      &_image{
+        margin: 0 auto 32px;
+        background-image: image-url("funny-3053583_1920.png");
+        background-size: contain;
+        height: 200px;
+        width: 200px;
+        background-repeat: no-repeat;
+      }
+      &_p{
+        font-size: 14px;
+        text-align: center;
+      }
+      a {
+        text-decoration: none;
+        font-size: 16px;
+        text-align: center;
+        font-weight: bold;
+        margin: 0 auto;
+        display: block;
+        width: 200px;
+      }
+    }
+  }
+}

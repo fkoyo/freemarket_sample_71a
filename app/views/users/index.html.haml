@@ -4,7 +4,9 @@
   = render "products/header"
 
   .index__breadCrumbs
-    FURIMA > マイページ
+    - breadcrumb :mypage
+    = render "layouts/breadcrumbs"
+    
   .index__main-contents
     = render "mypage.nav"
     .index__main-contents__user

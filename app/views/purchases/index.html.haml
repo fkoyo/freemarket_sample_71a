@@ -15,24 +15,30 @@
           .purchase__contents__items__detail--description__price
             %span.item-price
               = "¥" + "#{@product.price.to_s}"
-            %span (税込)送料込み 
+            %span (税込)
     .purchase__contents__buy-price
       %h2 支払い金額
       .purchase__contents__buy-price__pay-box
         %span.pay-price
         = "¥" + "#{@product.price.to_s}"
     .purchase__contents__credit
-      %h3 支払い方法   
-      .purchase__contents__credit__card-box
-        クレジットカード
+      %h3 支払い方法 
+      - if current_user.card.nil?
+        %li
+          = link_to "登録してください", users_card_path(current_user), class: "purchase__container__payment__box__register"
+      - else
+        %li.purchase__container__payment__box__register
+          クレジットカード  
         .credit_num
-          ************1234
-          -# = "************" + @credit.credit_num.last4
+          = "**** **** **** " + @card_customer.last4
         .expiration-date
-          有効期限 06 / 20
-          -# - limit_month = @credit.limit_month.to_s
-          -# - limit_year = @credit.limit_year.to_s.slice(2,3)
-          -# = "有効期限" + limit_month + " / " + limit_year
+          有効期限
+          = @card_month + '/' + @card_year
+
+        .brand
+        = image_tag "cards/#{@card_src}", class:"brand__image",height:'32', alt: @card_brand_image
+
+
 
     .purchase__contents__address 
       %h4 配送先    
@@ -49,11 +55,13 @@
             = @address.billding
         .address_name
           = @address.address_name    
-    .purchase__contents__form
-      .submit-btn
-        購入する
-        -# = form_tag(action: :card, method: :post) do
-          -# %button.buy-button{type:"submit"} 購入する
+    .purchase__contents__submit
+      - if current_user.card.present?
+        = form_tag(action: :pay, method: :post) do
+          %button.buy-button{type:"submit"} 購入を確定する
+      - else
+        -# = link_to users_card_path(current_user), class: "purchase__container__submit__btn--text" do
+        -#   クレジットカードを登録してください
     
   = render "devise/footer"
 

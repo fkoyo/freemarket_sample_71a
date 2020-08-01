@@ -2,7 +2,8 @@
   = render "products/header"
 
   .index__breadCrumbs
-    FURIMA > マイページ > ログアウト
+    - breadcrumb :logout
+    = render "layouts/breadcrumbs"
   .index__main-contents
     = render "mypage.nav"
     .index__main-contents__btn

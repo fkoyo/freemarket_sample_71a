@@ -17,7 +17,6 @@ class Product < ApplicationRecord
   validates :content
   validates :price
   validates :condition_id
-  validates :status
   validates :fee_id
   validates :area_id
   validates :shippingday_id

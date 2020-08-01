@@ -2,7 +2,8 @@
   = render "products/header"
 
   .index__breadCrumbs
-    FURIMA > マイページ > 支払い方法
+    - breadcrumb :card
+    = render "layouts/breadcrumbs"
   .index__main-contents
     = render "mypage.nav"
 
@@ -17,7 +18,7 @@
           .addition__btn
           = link_to "/cards", class: "addition__btn__card" do
             = icon('fas', 'credit-card')
-            クレジットカードを追加する
+            クレジットカードを追加　/　一覧表示
 
         .foot
           .foot__information

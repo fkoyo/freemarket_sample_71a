@@ -1,11 +1,10 @@
 .index {
-  &__breadCrumbs {
-    padding: 0 180px;
+  &__breadCrumbs {  
     border-top: 1px solid #eee;
     box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
     background: #fff;
     display: block;
-    font-size: 14px;
+    font-size: 14px; 
     line-height: 50px;
   }
   &__main-contents {
@@ -254,6 +253,10 @@
         }    
       }         
     }
+  }
+  a{
+    text-decoration: none;
+    color: #333; 
   }
 }
 

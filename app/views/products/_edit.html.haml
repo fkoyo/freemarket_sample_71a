@@ -14,25 +14,23 @@
               最大5枚までアップロードできます
               .post__drop__box__container
                 .prev-content
-                  - @product.photos.each do |image, i|
+                  - @product.photos.each do |image|
                     .preview-box
                       .upper-box
-                        = image_tag image.name, width: "112", height: "112", alt: "preview"
+                        = image_tag image.name.url, width: "112", height: "112", alt: "preview"
                       .lower-box
-                        .update-box{"data-image-index": i }
-                          %label.edit-btn 編集
                         .delete-box
                           .delete-btn
                             %span 削除
                 .label-content
-                  %label{for: "photos_attributes_#{@product.photos.length}_image", class: "label-box", id:  "label-box--#{@product.photos.length}"}
+                  %label{for: "product_photos_attributes_#{@product.photos.length}_name", class: "label-box", id: "label-box--#{@product.photos.length}"}
                     %pre.label-box__text-visible クリックしてファイルをアップロード
                 .hidden-content
                   = f.fields_for :photos do |i|
-                    = i.file_field :image, class: "hidden-field"
+                    = i.file_field :name, class: "hidden-field"
                     = i.check_box :_destroy, class: "hidden-checkbox"
                   - @product.photos.length.upto(4) do |i|
-                    %input{name: "product[photos_attributes][#{i}][image]", id: "photos_attributes_#{i}_image", class:"hidden-field", type:"file"}
+                    %input{name: "product[photos_attributes][#{i}][name]", id: "product_photos_attributes_#{i}_name", class:"hidden-field", type:"file"}
  
         .item-name
           .item-name__body

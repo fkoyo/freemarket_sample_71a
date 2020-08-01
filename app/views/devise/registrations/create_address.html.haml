@@ -1,5 +1,10 @@
 .signup
   = render "devise/header"
-  %h2 登録が完了しました
-  = link_to "トップへ戻る", root_path
+  .after-sign-up
+    .after-sign-up_content
+      .after-sign-up_content_box
+        %h1.after-sign-up_content_box_message 登録が完了しました
+        .after-sign-up_content_box_image
+        %p.after-sign-up_content_box_p 引き続きお買い物をお楽しみください
+        = link_to "トップへ戻る", root_path
   = render "devise/footer"
