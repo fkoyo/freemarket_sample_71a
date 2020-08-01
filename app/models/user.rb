@@ -12,9 +12,9 @@ class User < ApplicationRecord
   has_one :card, dependent: :destroy
   has_many :products
   has_many :sns_credentials, dependent: :destroy
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: %i[facebook google_oauth2]
+  # devise :database_authenticatable, :registerable,
+  #        :recoverable, :rememberable, :validatable,
+  #        :omniauthable, omniauth_providers: %i[facebook google_oauth2]
 
   def self.without_sns_data(auth)
     user = User.where(email: auth.info.email).first
