@@ -310,3 +310,4 @@ Devise.setup do |config|
   # config.sign_in_after_change_password = true
   # config.secret_key = <%= ENV["SECRET_KEY_BASE"] %>
 end
+
