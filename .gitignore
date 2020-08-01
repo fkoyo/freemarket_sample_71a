@@ -19,3 +19,7 @@ config/secrets.yml
 .byebug_history
 .DS_Store
 /public/uploads
+
+
+
+.env
