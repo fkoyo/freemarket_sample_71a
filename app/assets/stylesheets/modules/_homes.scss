@@ -342,18 +342,19 @@
   }
 
 
-  &__appBanner {
-    // background-image: image-url("/assets/images/bg-appBanner-pict.jpg");
-    // background-size: cover;
-    // background-position: center;
-    // height: 355px;
-    // padding: 100px 40px;
-    &__inner {
-      background-image: image-url("/assets/images/bg-appBanner-pict.jpg");
-      background-size: cover;
-      background-position: center;
-      height: 355px;
-      padding: 100px 40px;
+  .index__appBanner {
+    background-image: image-url('bg-appBanner-pict.jpg');
+    background-size: cover;
+    background-position: center;
+    // background-repeat: no-repeat;
+    background-position: top center;
+    position: relative;
+    height: 350px;
+    padding: 100px 40px;
+    width: 100%;
+    display: flex;
+    
+    .appBanner__inner {
       color: #fff;
       text-align: center;
       &__title {
