@@ -17,8 +17,6 @@
 
 ### Association
 - has_many:products, dependent: :destroy
-- has_many:messages, dependent:destroy
-- has_many:rates, dependent: :destroy
 - has_many:cards, dependent: :destroy
 - has_many:shopping_address, dependent:destroy
 - has_many:Purchase_historys, dependent:destroy
